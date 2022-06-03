@@ -1,0 +1,47 @@
+[
+  {
+    "field": "Customer Id",
+    "value": "0001"
+  },
+  { "field": "Full Name", "value": "John Doe" },
+  {
+    "field": "Address",
+    "value": "No. 1, Street 2, Taman 3, 12345 Selangor"
+  },
+  {
+    "field": "Handphone No.",
+    "value": "05-0123467"
+  },
+  {
+    "field": "Telephone No.",
+    "value": "012-3456789"
+  },
+  {
+    "field": "Email",
+    "value": "johndoe@gmail.com"
+  },
+  {
+    "field": "Salesman Code",
+    "value": "0100110"
+  },
+  {
+    "field": "User Id",
+    "value": "30303030"
+  },
+  {
+    "field": "Branch Code",
+    "value": "44"
+  },
+  {
+    "field": "Model Name",
+    "value": "Mercs"
+  },
+  {
+    "field": "Manufacturer Year",
+    "value": "2020"
+  },
+  {
+    "field": "Colour",
+    "value": "Red"
+  }
+]

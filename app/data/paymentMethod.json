@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Insurance",
+    "date": "Your safety is our priority",
+    "amount": 5
+  },
+  {
+    "id": 2,
+    "title": "Service",
+    "date": "No compromise at your service",
+    "amount": 6
+  },
+  {
+    "id": 3,
+    "title": "Installment",
+    "date": "You can choose and pay",
+    "amount": 7
+  }
+]
