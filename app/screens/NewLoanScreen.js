@@ -12,9 +12,8 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
 
-const OnlineApplication = ({ navigation }) => {
+const NewLoanScreen = ({ navigation }) => {
   //console.log(salesData[0].title);
   return (
     <SafeAreaView style={styles.container}>
@@ -54,33 +53,13 @@ const OnlineApplication = ({ navigation }) => {
           {/*</View>
           <View style={styles.item}>*/}
           <TextInput style={styles.input} placeholder="Model" />
-
-          {/*salesData.map((data, index) => (
-            <TouchableOpacity key={data.id} style={styles.item}>
-              <Text style={styles.title}>{data.title}</Text>
-              <Text style={styles.date}>{data.date}</Text>
-              <Text style={styles.amount}>RM {data.amount}</Text>
-            </TouchableOpacity>
-          ))*/}
-          {/*</View>
-        <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Referral Code" />
           {/*</View>*/}
-          <View style={styles.itemOnlineApplication}>
-            <Text style={styles.title}>Upload Document</Text>
-            <MaterialIcons
-              name="upload-file"
-              size={40}
-              color="grey"
-              onPress={() => navigation.navigate("DashboardScreen")}
-              style={styles.icon}
-            />
-          </View>
+
           <TouchableOpacity
             style={styles.applyButton}
             onPress={() => navigation.navigate("DashboardScreen")}
           >
-            <Text style={styles.applyText}>Apply</Text>
+            <Text style={styles.applyText}>Apply Loan</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -154,7 +133,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },*/
-  itemOnlineApplication: {
+  /*itemOnlineApplication: {
     marginTop: 7,
     backgroundColor: "white",
     width: "85%",
@@ -162,12 +141,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-  },
-  title: {
+  },*/
+  /*title: {
     fontSize: 20,
     marginLeft: 10,
-  },
-  icon: { position: "relative", marginLeft: 20 },
+  },*/
   input: {
     height: 40,
     margin: 12,
@@ -188,7 +166,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     //marginBottom: 10,
     borderRadius: 20,
-    marginTop: 30,
+    marginTop: 80,
     marginBottom: 30,
   },
   applyText: {
@@ -198,4 +176,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnlineApplication;
+export default NewLoanScreen;

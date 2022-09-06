@@ -14,7 +14,7 @@ import React from "react";
 const WelcomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Sbar backgroundColor="transparent" style="auto" />
+      <Sbar backgroundColor="lightgrey" style="auto" />
       <ImageBackground
         source={require("../../assets/BackgroundImg.png")}
         style={styles.background}
@@ -57,9 +57,7 @@ const WelcomeScreen = ({ navigation }) => {
           >
             <Text style={styles.loginText}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.registerButton}>
-            <Text style={styles.loginText}>Sign Up</Text>
-          </TouchableOpacity>
+
           {/* <Button title="Login" style={styles.loginButton} /> */}
         </View>
       </ImageBackground>
@@ -105,28 +103,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loginButton: {
-    width: "100%",
-    height: 40,
-    backgroundColor: "#4ecdc4",
+    position: "absolute",
+    top: 670,
+    width: "80%",
+    height: 45,
+    backgroundColor: "dodgerblue",
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 20,
   },
-  registerButton: {
-    width: "100%",
-    height: 40,
-    backgroundColor: "#fc5c65",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+
   textDesign: {
     backgroundColor: "#FFD700",
     color: "#FFF",
     fontSize: 20,
   },
   loginText: {
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: "bold",
-    fontStyle: "italic",
+    color: "white",
   },
 });
 

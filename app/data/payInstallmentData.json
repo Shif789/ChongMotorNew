@@ -1,0 +1,23 @@
+[
+  {
+    "field": "Last Payment Date",
+    "value": "01/01/2020"
+  },
+  { "field": "Plate No.", "value": "WAA 1234" },
+  {
+    "field": "Agreement No.",
+    "value": "AB-000123"
+  },
+  {
+    "field": "Installment Amount",
+    "value": "RM 25,000.00"
+  },
+  {
+    "field": "Installment Due Date",
+    "value": "01/02/2020"
+  },
+  {
+    "field": "Total Outstanding",
+    "value": "RM 500.00"
+  }
+]

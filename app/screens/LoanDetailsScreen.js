@@ -12,9 +12,9 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
+import Data from "../data/loansDetailsData.json";
 
-const OnlineApplication = ({ navigation }) => {
+const LoanDetailsScreen = ({ navigation }) => {
   //console.log(salesData[0].title);
   return (
     <SafeAreaView style={styles.container}>
@@ -33,54 +33,17 @@ const OnlineApplication = ({ navigation }) => {
       </View>
       <ScrollView style={styles.scrollDesign}>
         <View style={styles.scrollContentStyle}>
-          {/*<View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="NRIC/ Passport" />
-          {/*</View>
-          <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Name" />
-          {/*</View>
-          <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Address" />
-          {/*</View>
-          <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Contact No." />
-          {/*</View>
-          <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Company Name" />
-          {/*</View>
-          
-          <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Down payment" />
-          {/*</View>
-          <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Model" />
-
-          {/*salesData.map((data, index) => (
-            <TouchableOpacity key={data.id} style={styles.item}>
-              <Text style={styles.title}>{data.title}</Text>
-              <Text style={styles.date}>{data.date}</Text>
-              <Text style={styles.amount}>RM {data.amount}</Text>
-            </TouchableOpacity>
-          ))*/}
-          {/*</View>
-        <View style={styles.item}>*/}
-          <TextInput style={styles.input} placeholder="Referral Code" />
-          {/*</View>*/}
-          <View style={styles.itemOnlineApplication}>
-            <Text style={styles.title}>Upload Document</Text>
-            <MaterialIcons
-              name="upload-file"
-              size={40}
-              color="grey"
-              onPress={() => navigation.navigate("DashboardScreen")}
-              style={styles.icon}
-            />
-          </View>
+          {Data.map((data, index) => (
+            <View key={index} style={styles.item}>
+              <Text style={styles.title}>{data.field}</Text>
+              <TextInput style={styles.input} value={data.value} />
+            </View>
+          ))}
           <TouchableOpacity
-            style={styles.applyButton}
-            onPress={() => navigation.navigate("DashboardScreen")}
+            style={styles.payInstallmentButton}
+            onPress={() => navigation.navigate("Pay Installment")}
           >
-            <Text style={styles.applyText}>Apply</Text>
+            <Text style={styles.payInstallmentText}>Pay Installment</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -144,22 +107,13 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  /*item: {
-    marginTop: 7,
+  item: {
+    marginTop: 15,
     backgroundColor: "white",
     borderBottomColor: "black",
     borderBottomWidth: 2,
     width: "100%",
-    height: 80,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-  },*/
-  itemOnlineApplication: {
-    marginTop: 7,
-    backgroundColor: "white",
-    width: "85%",
-    height: 40,
-    flexDirection: "row",
+    height: 100,
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
@@ -167,18 +121,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 10,
   },
-  icon: { position: "relative", marginLeft: 20 },
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    width: "85%",
+    width: "90%",
     textAlign: "center",
     borderRadius: 12,
     backgroundColor: "white",
   },
-  applyButton: {
+  payInstallmentButton: {
     position: "relative",
     //top: 900,
     width: "70%",
@@ -188,14 +141,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     //marginBottom: 10,
     borderRadius: 20,
-    marginTop: 30,
+    marginTop: 50,
     marginBottom: 30,
   },
-  applyText: {
+  payInstallmentText: {
     fontSize: 15,
     fontWeight: "bold",
     color: "white",
   },
 });
 
-export default OnlineApplication;
+export default LoanDetailsScreen;

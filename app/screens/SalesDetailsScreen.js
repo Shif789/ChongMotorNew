@@ -9,6 +9,7 @@ import {
   ScrollView,
   Button,
   TextInput,
+  Image,
 } from "react-native";
 import React from "react";
 import Data from "../data/salesDetailsData.json";
@@ -18,6 +19,18 @@ const SalesDetailsScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
+      <View style={styles.barDesign}>
+        <Text style={styles.barTitle}>Chong Motor</Text>
+        <TouchableOpacity
+          style={styles.barNotification}
+          onPress={() => navigation.navigate("Notification")}
+        >
+          <Image
+            style={styles.barNotificationLogo}
+            source={require("../../assets/bell.png")}
+          />
+        </TouchableOpacity>
+      </View>
       <ScrollView style={styles.scrollDesign}>
         <View style={styles.scrollContentStyle}>
           {Data.map((data, index) => (
@@ -39,11 +52,48 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
+  barDesign: {
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    height: 50,
+    backgroundColor: "dodgerblue",
+    marginBottom: 15,
+    //borderBottomWidth: 1,
+    //borderBottomColor: "grey",
+    //position: "absolute",
+    //top: 0,
+  },
+  barNotification: {
+    //width: 25,
+    //height: 25,
+    position: "absolute",
+    alignItems: "center",
+    top: 10,
+    left: 355,
+    //marginRight: 10,
+  },
+  barNotificationLogo: {
+    width: 25,
+    height: 25,
+    //position: "absolute",
+    //alignItems: "center",
+    //top: -10,
+    //left: 88,
+    //marginRight: 10,
+  },
+  barTitle: {
+    fontWeight: "bold",
+    fontSize: 24,
+    marginLeft: 10,
+    color: "white",
+  },
   scrollDesign: {
     //justifyContent: "flex-start",
     //alignItems: "center",
     width: "100%",
-    backgroundColor: "#ffe6e6",
+    backgroundColor: "white",
     //borderRadius: 15,
   },
   scrollContentStyle: {
@@ -53,7 +103,7 @@ const styles = StyleSheet.create({
   },
   item: {
     marginTop: 15,
-    backgroundColor: "#f9c2ff",
+    backgroundColor: "white",
     borderBottomColor: "black",
     borderBottomWidth: 2,
     width: "100%",

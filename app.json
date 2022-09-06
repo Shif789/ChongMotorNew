@@ -2,7 +2,7 @@
   "expo": {
     "name": "ChongMotorDemo",
     "slug": "ChongMotorDemo",
-    "version": "1.0.0",
+    "version": "3.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "ChongMotor.apk"
     },
     "android": {
       "adaptiveIcon": {

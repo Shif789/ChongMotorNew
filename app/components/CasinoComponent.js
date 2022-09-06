@@ -7,6 +7,7 @@ import {
   StatusBar as Sbar,
   Platform,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
@@ -41,6 +42,18 @@ const CasinoComponent = (props) => {
         <Button title="Back" />
         <Text style={styles.barText}>{/*promoName}Casino</Text>
       </View> */}
+      <View style={styles.barDesign}>
+        <Text style={styles.barTitle}>Chong Motor</Text>
+        <TouchableOpacity
+          style={styles.barNotification}
+          onPress={() => navigation.navigate("Notification")}
+        >
+          <Image
+            style={styles.barNotificationLogo}
+            source={require("../../assets/bell.png")}
+          />
+        </TouchableOpacity>
+      </View>
       <Image
         style={styles.imageStyle}
         source=/*{displayImage}*/ {require(imgDisplay1)}
@@ -69,22 +82,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   barDesign: {
-    justifyContent: "flex-start",
+    justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
-    height: 40,
-    backgroundColor: "white",
+    height: 50,
+    backgroundColor: "dodgerblue",
     marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "grey",
+    //borderBottomWidth: 1,
+    //borderBottomColor: "grey",
+    //position: "absolute",
+    //top: 0,
   },
-  barText: {
+  barNotification: {
+    //width: 25,
+    //height: 25,
     position: "absolute",
-    fontWeight: "bold",
-    fontSize: 18,
-    left: 150,
     alignItems: "center",
+    top: 10,
+    left: 355,
+    //marginRight: 10,
+  },
+  barNotificationLogo: {
+    width: 25,
+    height: 25,
+    //position: "absolute",
+    //alignItems: "center",
+    //top: -10,
+    //left: 88,
+    //marginRight: 10,
+  },
+  barTitle: {
+    fontWeight: "bold",
+    fontSize: 24,
+    marginLeft: 10,
+    color: "white",
   },
   imageStyle: {
     width: "100%",

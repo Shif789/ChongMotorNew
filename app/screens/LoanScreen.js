@@ -8,6 +8,7 @@ import {
   StatusBar as Sbar,
   ScrollView,
   Button,
+  Image,
 } from "react-native";
 import React from "react";
 import loansData from "../data/loans.json";
@@ -17,16 +18,25 @@ const LoanScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
       <View style={styles.barDesign}>
-        <Button
-          title="Back"
-          onPress={() => navigation.navigate("DashboardScreen")}
-        />
-        <Text style={styles.barText}>Loan List</Text>
+        <Text style={styles.barTitle}>Chong Motor</Text>
+        <TouchableOpacity
+          style={styles.barNotification}
+          onPress={() => navigation.navigate("Notification")}
+        >
+          <Image
+            style={styles.barNotificationLogo}
+            source={require("../../assets/bell.png")}
+          />
+        </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
         <View style={styles.scrollContentStyle}>
           {loansData.map((data, index) => (
-            <TouchableOpacity key={data.id} style={styles.item}>
+            <TouchableOpacity
+              key={data.id}
+              style={styles.item}
+              onPress={() => navigation.navigate("Loan List")}
+            >
               <Text style={styles.title}>{data.title}</Text>
               <Text style={styles.date}>{data.date}</Text>
               <Text style={[styles.status, { color: data.fColor }]}>
@@ -37,6 +47,12 @@ const LoanScreen = ({ navigation }) => {
           ))}
         </View>
       </ScrollView>
+      <TouchableOpacity
+        style={styles.newLoanButton}
+        onPress={() => navigation.navigate("New Loan Screen")}
+      >
+        <Text style={styles.newLoanText}>New Loan</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -48,22 +64,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   barDesign: {
-    justifyContent: "flex-start",
+    justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
-    height: 40,
-    backgroundColor: "white",
+    height: 50,
+    backgroundColor: "dodgerblue",
     marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "grey",
+    //borderBottomWidth: 1,
+    //borderBottomColor: "grey",
+    //position: "absolute",
+    //top: 0,
   },
-  barText: {
+  barNotification: {
+    //width: 25,
+    //height: 25,
     position: "absolute",
-    fontWeight: "bold",
-    fontSize: 18,
-    left: 150,
     alignItems: "center",
+    top: 10,
+    left: 355,
+    //marginRight: 10,
+  },
+  barNotificationLogo: {
+    width: 25,
+    height: 25,
+    //position: "absolute",
+    //alignItems: "center",
+    //top: -10,
+    //left: 88,
+    //marginRight: 10,
+  },
+  barTitle: {
+    fontWeight: "bold",
+    fontSize: 24,
+    marginLeft: 10,
+    color: "white",
   },
   scrollDesign: {
     //justifyContent: "flex-start",
@@ -106,6 +141,22 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 28,
     marginLeft: 210,
+  },
+  newLoanButton: {
+    position: "absolute",
+    top: 600,
+    width: "70%",
+    height: 45,
+    backgroundColor: "dodgerblue",
+    justifyContent: "center",
+    alignItems: "center",
+    //marginBottom: 10,
+    borderRadius: 20,
+  },
+  newLoanText: {
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "white",
   },
 });
 

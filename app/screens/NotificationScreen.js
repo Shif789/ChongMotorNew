@@ -11,23 +11,35 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import paymentData from "../data/paymentMethod.json";
+import notificationData from "../data/notificationData.json";
 
-const OnlinePayment = ({ navigation }) => {
+const NotificationScreen = ({ navigation }) => {
   //console.log(salesData[0].title);
   return (
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
-      <View style={styles.barDesign}>
+      {/*<View style={styles.barDesign}>
         <Button
           title="Back"
           onPress={() => navigation.navigate("DashboardScreen")}
         />
         <Text style={styles.barText}>Payment Methods</Text>
+  </View>*/}
+      <View style={styles.barDesign}>
+        <Text style={styles.barTitle}>Chong Motor</Text>
+        <TouchableOpacity
+          style={styles.barNotification}
+          onPress={() => navigation.navigate("Notification")}
+        >
+          <Image
+            style={styles.barNotificationLogo}
+            source={require("../../assets/bell.png")}
+          />
+        </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
         <View style={styles.scrollContentStyle}>
-          {paymentData.map((data, index) => {
+          {notificationData.map((data, index) => {
             let paymentResult;
             switch (data.title) {
               case "Insurance":
@@ -131,22 +143,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   barDesign: {
-    justifyContent: "flex-start",
+    justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
-    height: 40,
-    backgroundColor: "white",
+    height: 50,
+    backgroundColor: "dodgerblue",
     marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "grey",
+    //borderBottomWidth: 1,
+    //borderBottomColor: "grey",
+    //position: "absolute",
+    //top: 0,
   },
-  barText: {
+  barNotification: {
+    //width: 25,
+    //height: 25,
     position: "absolute",
-    fontWeight: "bold",
-    fontSize: 18,
-    left: 150,
     alignItems: "center",
+    top: 10,
+    left: 355,
+    //marginRight: 10,
+  },
+  barNotificationLogo: {
+    width: 25,
+    height: 25,
+    //position: "absolute",
+    //alignItems: "center",
+    //top: -10,
+    //left: 88,
+    //marginRight: 10,
+  },
+  barTitle: {
+    fontWeight: "bold",
+    fontSize: 24,
+    marginLeft: 10,
+    color: "white",
   },
   scrollDesign: {
     //justifyContent: "flex-start",
@@ -199,4 +230,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnlinePayment;
+export default NotificationScreen;

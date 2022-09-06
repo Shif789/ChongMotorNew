@@ -1,0 +1,31 @@
+[
+  {
+    "field": "NRIC/ Passport",
+    "value": "900101-00-1234"
+  },
+  { "field": "Full Name", "value": "John Doe" },
+  {
+    "field": "Address",
+    "value": "No. 1, Street 2, Taman 3, 12345 Selangor"
+  },
+  {
+    "field": "Handphone No.",
+    "value": "05-0123467"
+  },
+  {
+    "field": "Company Name",
+    "value": "NA"
+  },
+  {
+    "field": "Down Payment",
+    "value": "RM 25,000.00"
+  },
+  {
+    "field": "Model",
+    "value": "Model A"
+  },
+  {
+    "field": "Status",
+    "value": "Approved"
+  }
+]

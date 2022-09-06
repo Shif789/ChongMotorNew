@@ -10,18 +10,40 @@ import {
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
+import { signOut } from "firebase/auth";
+import { authentication } from "../../firebase";
 
 const DashboardScreen = ({ navigation }) => {
+  const signOutUser = () => {
+    signOut(authentication)
+      .then(() => {
+        navigation.navigate("WelcomeScreen");
+        alert(`User has logged out`);
+      })
+      .catch((error) => alert(error.message));
+  };
   return (
     <SafeAreaView style={styles.newContainer}>
       <Sbar backgroundColor="lightgrey" style="auto" />
 
       <View style={styles.barDesign}>
-        <Text style={styles.barText}>Chong Motor</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("WelcomeScreen")}>
+        <Text style={styles.barTitle}>Chong Motor</Text>
+        <TouchableOpacity
+          style={styles.barNotification}
+          onPress={() => navigation.navigate("Notification")}
+        >
           <Image
-            style={styles.barLogo}
-            source={require("../../assets/logout.png")}
+            style={styles.barNotificationLogo}
+            source={require("../../assets/bell.png")}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.barInfoDesign}>
+        <Text style={styles.userName}>John Doe</Text>
+        <TouchableOpacity onPress={signOutUser}>
+          <Image
+            style={styles.barSettingsLogo}
+            source={require("../../assets/share.png")}
           />
         </TouchableOpacity>
       </View>
@@ -59,7 +81,7 @@ const DashboardScreen = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.logoContent}
-          onPress={() => navigation.navigate("OnlinePayment")}
+          onPress={() => navigation.navigate("Payment Screen")}
         >
           <Image
             style={styles.logo}
@@ -106,7 +128,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: "absolute",
-    top: 180,
+    top: 200,
     alignItems: "center",
   },
 
@@ -125,34 +147,72 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: "absolute",
-    top: 50,
+    top: 100,
     alignItems: "center",
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
   barDesign: {
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    height: 40,
+    backgroundColor: "dodgerblue",
+    marginBottom: 15,
+    //borderBottomWidth: 1,
+    //borderBottomColor: "grey",
+    position: "absolute",
+    top: 0,
+  },
+  barInfoDesign: {
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
-    height: 35,
-    backgroundColor: "white",
+    height: 40,
+    backgroundColor: "dodgerblue",
     marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "grey",
+    //borderBottomWidth: 1,
+    //borderBottomColor: "grey",
     position: "absolute",
-    top: 0,
+    top: 40,
   },
-  barLogo: {
+  barNotification: {
+    //width: 25,
+    //height: 25,
+    position: "absolute",
+    alignItems: "center",
+    top: 10,
+    left: 355,
+    //marginRight: 10,
+  },
+  barNotificationLogo: {
+    width: 25,
+    height: 25,
+    //position: "absolute",
+    //alignItems: "center",
+    //top: -10,
+    //left: 88,
+    //marginRight: 10,
+  },
+  barTitle: {
+    fontWeight: "bold",
+    fontSize: 24,
+    marginLeft: 10,
+    color: "white",
+  },
+  barSettingsLogo: {
     width: 25,
     height: 25,
     marginRight: 10,
   },
-  barText: {
+  userName: {
     fontWeight: "bold",
     fontSize: 18,
     marginLeft: 10,
+    color: "white",
   },
   loginButton: {
     width: "100%",
