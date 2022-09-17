@@ -11,6 +11,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { FontAwesome } from "@expo/vector-icons";
 import loansData from "../data/loans.json";
 
 const LoanScreen = ({ navigation }) => {
@@ -18,15 +19,16 @@ const LoanScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
@@ -37,7 +39,9 @@ const LoanScreen = ({ navigation }) => {
               style={styles.item}
               onPress={() => navigation.navigate("Loan List")}
             >
-              <Text style={styles.title}>{data.title}</Text>
+              <Text style={styles.title}>
+                {data.loanNo}- {data.productNo}
+              </Text>
               <Text style={styles.date}>{data.date}</Text>
               <Text style={[styles.status, { color: data.fColor }]}>
                 {data.status}
@@ -62,6 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
+    backgroundColor: "white",
   },
   barDesign: {
     justifyContent: "center",
@@ -104,8 +109,8 @@ const styles = StyleSheet.create({
     //justifyContent: "flex-start",
     //alignItems: "center",
     width: "95%",
-    backgroundColor: "#ffe6e6",
-    borderRadius: 15,
+    backgroundColor: "white",
+    //borderRadius: 15,
   },
   scrollContentStyle: {
     width: "100%",
@@ -113,34 +118,39 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   item: {
-    marginTop: 15,
-    backgroundColor: "#f9c2ff",
-    width: "90%",
-    height: 120,
-    borderRadius: 18,
+    marginTop: 30,
+    backgroundColor: "white",
+    borderBottomWidth: 1.5,
+    borderBottomColor: "grey",
+    width: "98%",
+    height: 75,
+    //borderRadius: 18,
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
   title: {
     fontSize: 24,
-    marginLeft: 20,
+    marginLeft: 10,
+    fontWeight: "bold",
   },
   date: {
-    fontSize: 16,
-    marginLeft: 20,
-    fontStyle: "italic",
+    fontSize: 18,
+    marginLeft: 10,
+    marginTop: 3,
+    color: "grey",
   },
   amount: {
     fontSize: 20,
     position: "absolute",
-    bottom: 5,
-    marginLeft: 210,
+    bottom: 14,
+    marginLeft: 260,
+    fontWeight: "bold",
   },
   status: {
-    fontSize: 17,
+    fontSize: 22,
     position: "absolute",
-    bottom: 28,
-    marginLeft: 210,
+    bottom: 40,
+    marginLeft: 260,
   },
   newLoanButton: {
     position: "absolute",

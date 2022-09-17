@@ -7,11 +7,13 @@ import {
   StatusBar as Sbar,
   Platform,
   SafeAreaView,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { signOut } from "firebase/auth";
 import { authentication } from "../../firebase";
+import { FontAwesome, AntDesign } from "@expo/vector-icons";
 
 const DashboardScreen = ({ navigation }) => {
   const signOutUser = () => {
@@ -27,23 +29,30 @@ const DashboardScreen = ({ navigation }) => {
       <Sbar backgroundColor="lightgrey" style="auto" />
 
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <View style={styles.barInfoDesign}>
         <Text style={styles.userName}>John Doe</Text>
         <TouchableOpacity onPress={signOutUser}>
-          <Image
+          {/*<Image
             style={styles.barSettingsLogo}
-            source={require("../../assets/share.png")}
+            source={require("../../assets/logout.png")}
+/>*/}
+          <AntDesign
+            style={styles.barSettingsLogo}
+            name="logout"
+            size={22}
+            color="white"
           />
         </TouchableOpacity>
       </View>
@@ -55,7 +64,7 @@ const DashboardScreen = ({ navigation }) => {
         >
           <Image
             style={styles.logo}
-            source={require("../../assets/salesOrder.png")}
+            source={require("../../assets/salesOrderNew.png")}
           />
           <Text style={styles.logoText}>Sales Order</Text>
         </TouchableOpacity>
@@ -65,9 +74,9 @@ const DashboardScreen = ({ navigation }) => {
         >
           <Image
             style={styles.logo}
-            source={require("../../assets/loan.png")}
+            source={require("../../assets/loanNew.png")}
           />
-          <Text style={styles.logoText}>Loan Page</Text>
+          <Text style={styles.logoText}>Loan{"   "}Page</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.logoContent}
@@ -75,9 +84,9 @@ const DashboardScreen = ({ navigation }) => {
         >
           <Image
             style={styles.logo}
-            source={require("../../assets/onlineApp.png")}
+            source={require("../../assets/onlineAppNew.png")}
           />
-          <Text style={styles.logoText}>Online App</Text>
+          <Text style={styles.logoText}>Online{"      "}Application</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.logoContent}
@@ -85,32 +94,60 @@ const DashboardScreen = ({ navigation }) => {
         >
           <Image
             style={styles.logo}
-            source={require("../../assets/digitalPayment.png")}
+            source={require("../../assets/paymentNew.png")}
           />
           <Text style={styles.logoText}>Onlne Payment</Text>
         </TouchableOpacity>
       </View>
-
-      <View style={styles.imageContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Casino")}>
-          <Image
-            style={[styles.imageDesign, { marginBottom: 7 }]}
-            source={require("../../assets/casino.jpg")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Cash")}>
-          <Image
-            style={[styles.imageDesign, { marginBottom: 7 }]}
-            source={require("../../assets/cash.jpg")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Promotion")}>
-          <Image
-            style={styles.imageDesign}
-            source={require("../../assets/casinoPromotion.jpg")}
-          />
-        </TouchableOpacity>
-      </View>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.imageContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate("Casino")}>
+            <Image
+              style={[styles.imageDesign, { marginBottom: 0 }]}
+              source={require("../../assets/promotion1.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Cash")}>
+            <Image
+              style={styles.imageDesign}
+              source={require("../../assets/promotion.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Casino")}>
+            <Image
+              style={styles.imageDesign}
+              source={require("../../assets/promotion1.png")}
+            />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+      {/*<View style={styles.imageContainer}>
+        <ScrollView style={styles.scrollDesign}>
+          <View style={{ alignItems: "center" }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Casino")}>
+              <Image
+                style={[styles.imageDesign, { marginBottom: 0 }]}
+                source={require("../../assets/promotion1.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ marginBottom: 10 }}
+              onPress={() => navigation.navigate("Cash")}
+            >
+              <Image
+                style={styles.imageDesign}
+                source={require("../../assets/promotion.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Casino")}>
+              <Image
+                style={styles.imageDesign}
+                source={require("../../assets/promotion1.png")}
+              />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </View>*/}
     </SafeAreaView>
   );
 };
@@ -120,15 +157,27 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
+    backgroundColor: "white",
   },
   imageDesign: {
-    width: 300,
-    height: 150,
-    borderRadius: 20,
+    width: 380,
+    height: 190,
+    resizeMode: "contain",
   },
-  imageContainer: {
+  /*imageContainer: {
     position: "absolute",
     top: 200,
+    alignItems: "center",
+    borderWidth: 2,
+  },*/
+  scrollView: {
+    backgroundColor: "white",
+    width: "100%",
+    marginTop: 230,
+  },
+  imageContainer: {
+    width: "100%",
+    height: "auto",
     alignItems: "center",
   },
 
@@ -140,6 +189,10 @@ const styles = StyleSheet.create({
   logoText: {
     fontWeight: "bold",
     marginTop: 2,
+    color: "silver",
+    width: 72,
+    height: 50,
+    textAlign: "center",
   },
   logoContent: {
     justifyContent: "center",
@@ -204,10 +257,11 @@ const styles = StyleSheet.create({
     color: "white",
   },
   barSettingsLogo: {
-    width: 25,
-    height: 25,
-    marginRight: 10,
+    //width: 25,
+    //height: 25,
+    marginRight: 13,
   },
+
   userName: {
     fontWeight: "bold",
     fontSize: 18,

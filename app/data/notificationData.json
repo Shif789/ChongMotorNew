@@ -2,19 +2,25 @@
   {
     "id": 1,
     "title": "Insurance",
-    "date": "Your safety is our priority",
-    "amount": 5
+    "info": "Your safety is our priority.lorem lorem lotem lorem ipusum lorem",
+    "timeValue": 5,
+    "timeText": "minutes",
+    "timeFormat": 24
   },
   {
     "id": 2,
     "title": "Service",
-    "date": "No compromise at your service",
-    "amount": 6
+    "info": "No compromise at your service.lorem lorem lotem lorem ipusum lorem",
+    "timeValue": 2,
+    "timeText": "hours",
+    "timeFormat": 24
   },
   {
     "id": 3,
     "title": "Installment",
-    "date": "You can choose and pay",
-    "amount": 7
+    "info": "You can choose and pay.lorem lorem lotem lorem ipusum lorem",
+    "timeValue": 8.3,
+    "timeText": "pm",
+    "timeFormat": 48
   }
 ]

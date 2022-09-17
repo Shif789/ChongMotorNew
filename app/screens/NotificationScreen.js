@@ -11,6 +11,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { FontAwesome } from "@expo/vector-icons";
 import notificationData from "../data/notificationData.json";
 
 const NotificationScreen = ({ navigation }) => {
@@ -26,21 +27,53 @@ const NotificationScreen = ({ navigation }) => {
         <Text style={styles.barText}>Payment Methods</Text>
   </View>*/}
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
         <View style={styles.scrollContentStyle}>
-          {notificationData.map((data, index) => {
-            let paymentResult;
+          <Text style={styles.day}>Today</Text>
+          {notificationData
+            .filter((data) => data.timeFormat !== 48)
+            .map((data, index) => (
+              <TouchableOpacity key={data.id} style={styles.item}>
+                <View style={styles.itemHeaderStyle}>
+                  <Image
+                    style={styles.itemLogoStyle}
+                    source={require("../../assets/notification.png")}
+                  />
+                  <Text
+                    style={{
+                      marginLeft: 10,
+                      //flexDirection: "row",
+                      //alignItems: "center",
+                      width: 320,
+                      //borderWidth: 1,
+                    }}
+                  >
+                    <Text style={styles.title}>{data.title} </Text>
+                    <Text style={styles.date}>{data.info}</Text>
+                  </Text>
+                </View>
+                <Text style={styles.amount}>
+                  <Image
+                    style={styles.amountLogoStyle}
+                    source={require("../../assets/time.png")}
+                  />{" "}
+                  {data.timeValue} {data.timeText} ago
+                </Text>
+              </TouchableOpacity>
+              /*let paymentResult;
+            
             switch (data.title) {
               case "Insurance":
                 paymentResult = (
@@ -48,15 +81,25 @@ const NotificationScreen = ({ navigation }) => {
                     <View style={styles.itemHeaderStyle}>
                       <Image
                         style={styles.itemLogoStyle}
-                        source={require("../../assets/insurance.png")}
+                        source={require("../../assets/notification.png")}
                       />
-                      <Text style={styles.title}>{data.title}</Text>
+                      <Text
+                        style={{
+                          marginLeft: 10,
+                          //flexDirection: "row",
+                          //alignItems: "center",
+                          width: 320,
+                          //borderWidth: 1,
+                        }}
+                      >
+                        <Text style={styles.title}>{data.title} </Text>
+                        <Text style={styles.date}>{data.date}</Text>
+                      </Text>
                     </View>
-                    <Text style={styles.date}>{data.date}</Text>
                     <Text style={styles.amount}>
                       <Image
                         style={styles.amountLogoStyle}
-                        source={require("../../assets/info.png")}
+                        source={require("../../assets/time.png")}
                       />{" "}
                       {data.amount} minutes ago
                     </Text>
@@ -70,7 +113,7 @@ const NotificationScreen = ({ navigation }) => {
                     <View style={styles.itemHeaderStyle}>
                       <Image
                         style={styles.itemLogoStyle}
-                        source={require("../../assets/service.png")}
+                        source={require("../../assets/notification.png")}
                       />
                       <Text style={styles.title}>{data.title}</Text>
                     </View>
@@ -80,7 +123,7 @@ const NotificationScreen = ({ navigation }) => {
                         style={styles.amountLogoStyle}
                         source={require("../../assets/info.png")}
                       />{" "}
-                      {data.amount} minutes ago
+                      {data.amount} hours ago
                     </Text>
                   </TouchableOpacity>
                 );
@@ -92,7 +135,7 @@ const NotificationScreen = ({ navigation }) => {
                     <View style={styles.itemHeaderStyle}>
                       <Image
                         style={styles.itemLogoStyle}
-                        source={require("../../assets/installment.png")}
+                        source={require("../../assets/notification.png")}
                       />
                       <Text style={styles.title}>{data.title}</Text>
                     </View>
@@ -102,7 +145,7 @@ const NotificationScreen = ({ navigation }) => {
                         style={styles.amountLogoStyle}
                         source={require("../../assets/info.png")}
                       />{" "}
-                      {data.amount} minutes ago
+                      Yesterday at {data.amount}pm
                     </Text>
                   </TouchableOpacity>
                 );
@@ -110,9 +153,9 @@ const NotificationScreen = ({ navigation }) => {
 
               default:
                 break;
-            }
-            return paymentResult;
-            /*<TouchableOpacity key={data.id} style={styles.item}>
+            }*/
+              //return paymentResult;
+              /*<TouchableOpacity key={data.id} style={styles.item}>
               <View style={styles.itemHeaderStyle}>
                 <Image
                   style={styles.itemLogoStyle}
@@ -129,7 +172,39 @@ const NotificationScreen = ({ navigation }) => {
                 {data.amount} minutes ago
               </Text>
             </TouchableOpacity>*/
-          })}
+            ))}
+          <Text style={styles.day}>Yesterday</Text>
+          {notificationData
+            .filter((data) => data.timeFormat !== 24)
+            .map((data, index) => (
+              <TouchableOpacity key={data.id} style={styles.item}>
+                <View style={styles.itemHeaderStyle}>
+                  <Image
+                    style={styles.itemLogoStyle}
+                    source={require("../../assets/notification.png")}
+                  />
+                  <Text
+                    style={{
+                      marginLeft: 10,
+                      //flexDirection: "row",
+                      //alignItems: "center",
+                      width: 320,
+                      //borderWidth: 1,
+                    }}
+                  >
+                    <Text style={styles.title}>{data.title} </Text>
+                    <Text style={styles.date}>{data.info}</Text>
+                  </Text>
+                </View>
+                <Text style={styles.amount}>
+                  <Image
+                    style={styles.amountLogoStyle}
+                    source={require("../../assets/time.png")}
+                  />{" "}
+                  Yesterday at {data.timeValue} {data.timeText}
+                </Text>
+              </TouchableOpacity>
+            ))}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -141,6 +216,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
+    backgroundColor: "white",
   },
   barDesign: {
     justifyContent: "center",
@@ -183,46 +259,64 @@ const styles = StyleSheet.create({
     //justifyContent: "flex-start",
     //alignItems: "center",
     width: "95%",
-    backgroundColor: "#ffe6e6",
-    borderRadius: 15,
+    backgroundColor: "white",
+    //borderRadius: 15,
   },
   scrollContentStyle: {
     width: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  day: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "dodgerblue",
+    marginTop: 18,
+    marginBottom: 12,
+    marginRight: 260,
+    width: 95,
+  },
   item: {
-    marginTop: 15,
-    backgroundColor: "#f9c2ff",
-    width: "90%",
-    height: 120,
-    borderRadius: 18,
+    marginTop: 0,
+    marginBottom: 15,
+    backgroundColor: "white",
+    borderBottomColor: "grey",
+    borderBottomWidth: 1.5,
+    width: "100%",
+    height: "auto",
+    //borderRadius: 18,
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
   itemHeaderStyle: {
-    marginLeft: 20,
+    marginLeft: 5,
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   itemLogoStyle: {
     width: 35,
     height: 35,
+    resizeMode: "cover",
   },
   title: {
     fontSize: 22,
     marginLeft: 10,
+    fontWeight: "bold",
   },
   date: {
-    fontSize: 16,
-    marginLeft: 65,
-    fontStyle: "italic",
+    fontSize: 17,
+    marginLeft: 15,
+    //fontStyle: "italic",
+    //width: 20,
   },
   amount: {
-    fontSize: 14,
-    position: "absolute",
-    bottom: 5,
-    marginLeft: 200,
+    fontSize: 15,
+    color: "grey",
+    //position: "absolute",
+    //bottom: 5,
+    marginTop: 10,
+    marginLeft: 48,
+    marginBottom: 15,
   },
   amountLogoStyle: {
     width: 20,

@@ -38,15 +38,16 @@ const PaymentScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
@@ -67,7 +68,7 @@ const PaymentScreen = ({ navigation }) => {
                   name="credit-card-plus-outline"
                   size={35}
                   color="grey"
-                  onPress={() => navigation.navigate("DashboardScreen")}
+                  //onPress={() => navigation.navigate("DashboardScreen")}
                   style={styles.icon}
                 />
                 <View style={styles.paymentMethod}>
@@ -83,14 +84,14 @@ const PaymentScreen = ({ navigation }) => {
                   <FontAwesome
                     name="cc-mastercard"
                     size={35}
-                    color="grey"
+                    color="red"
                     //onPress={() => navigation.navigate("DashboardScreen")}
                     style={styles.icon}
                   />
                   <FontAwesome
                     name="cc-visa"
                     size={35}
-                    color="grey"
+                    color="blue"
                     //onPress={() => navigation.navigate("DashboardScreen")}
                     style={styles.icon}
                   />
@@ -159,12 +160,16 @@ const PaymentScreen = ({ navigation }) => {
           <View style={styles.itemContainer}>
             <TouchableOpacity onPress={handleVisibility2}>
               <View style={styles.itemPayment}>
-                <FontAwesome
+                {/*<FontAwesome
                   name="cc-visa"
                   size={35}
                   color="grey"
                   //onPress={() => navigation.navigate("DashboardScreen")}
                   style={styles.icon}
+                  />*/}
+                <Image
+                  style={styles.mayBankLogo}
+                  source={require("../../assets/maybanklogo.png")}
                 />
                 <View style={styles.paymentMethod}>
                   <Text style={styles.paymentMethodTitle}>Online Banking</Text>
@@ -184,12 +189,16 @@ const PaymentScreen = ({ navigation }) => {
           <View style={styles.itemContainer}>
             <TouchableOpacity onPress={handleVisibility3}>
               <View style={styles.itemPayment}>
-                <FontAwesome
+                {/*<FontAwesome
                   name="cc-mastercard"
                   size={35}
                   color="grey"
                   onPress={() => navigation.navigate("DashboardScreen")}
                   style={styles.icon}
+            />*/}
+                <Image
+                  style={styles.cimbLogo}
+                  source={require("../../assets/cimbLogo.png")}
                 />
                 <View style={styles.paymentMethod}>
                   <Text style={styles.paymentMethodTitle}>Online Banking</Text>
@@ -303,7 +312,6 @@ const styles = StyleSheet.create({
     height: "auto",
     flexDirection: "column",
     justifyContent: "flex-start",
-    alignItems: "flex-start",
   },
   /*itemContainerFirst: {
     marginTop: 7,
@@ -331,6 +339,7 @@ const styles = StyleSheet.create({
   itemPayment: {
     width: "100%",
     height: 50,
+    marginBottom: 10,
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -363,6 +372,8 @@ const styles = StyleSheet.create({
     color: "grey",
   },
   icon: { marginLeft: 10 },
+  mayBankLogo: { marginLeft: 6 },
+  cimbLogo: { marginLeft: 6 },
   input: {
     height: 40,
     margin: 12,
@@ -376,8 +387,9 @@ const styles = StyleSheet.create({
   allTopUpText: {
     marginTop: 10,
     marginBottom: 20,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
+    color: "grey",
   },
   applyButton: {
     position: "relative",

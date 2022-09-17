@@ -12,7 +12,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, AntDesign, FontAwesome } from "@expo/vector-icons";
 
 const OnlineApplication = ({ navigation }) => {
   //console.log(salesData[0].title);
@@ -20,15 +20,16 @@ const OnlineApplication = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
@@ -67,10 +68,10 @@ const OnlineApplication = ({ navigation }) => {
           <TextInput style={styles.input} placeholder="Referral Code" />
           {/*</View>*/}
           <View style={styles.itemOnlineApplication}>
-            <Text style={styles.title}>Upload Document</Text>
-            <MaterialIcons
-              name="upload-file"
-              size={40}
+            <Text style={styles.title}>Document Upload</Text>
+            <AntDesign
+              name="plussquareo"
+              size={50}
               color="grey"
               onPress={() => navigation.navigate("DashboardScreen")}
               style={styles.icon}
@@ -165,17 +166,23 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginLeft: 10,
+    marginLeft: 0,
+    width: 100,
+    height: 60,
+    color: "grey",
   },
-  icon: { position: "relative", marginLeft: 20 },
+  icon: { position: "relative", marginLeft: 20, marginTop: 5, height: 70 },
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
-    padding: 10,
+    fontSize: 18,
+    //borderWidth: 1,
+    borderBottomWidth: 1.5,
+    borderBottomColor: "grey",
+    //padding: 10,
     width: "85%",
-    textAlign: "center",
-    borderRadius: 12,
+    textAlign: "left",
+    //borderRadius: 12,
     backgroundColor: "white",
   },
   applyButton: {
@@ -188,7 +195,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     //marginBottom: 10,
     borderRadius: 20,
-    marginTop: 30,
+    marginTop: 45,
     marginBottom: 30,
   },
   applyText: {

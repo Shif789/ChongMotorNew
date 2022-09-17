@@ -11,11 +11,12 @@ import {
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
+import { FontAwesome } from "@expo/vector-icons";
 
 const CashComponent = (props) => {
   const { imgType, promoName, displayName } = props;
   let imgDisplay1 = "../../assets/casino.jpg";
-  let imgDisplay2 = "../../assets/cash.jpg";
+  let imgDisplay2 = "../../assets/promotionBig.png";
   let imgDisplay3 = "../../assets/casinoPromotion.jpg";
   /*let displayImage;
 
@@ -43,15 +44,16 @@ const CashComponent = (props) => {
         <Text style={styles.barText}>{/*promoName}Cash</Text>
       </View> */}
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <Image
@@ -62,15 +64,17 @@ const CashComponent = (props) => {
         <Text style={{ fontWeight: "bold", fontSize: 24 }}>
           {/*displayName*/}Become a Millionaire
         </Text>
-        <Text style={{ fontStyle: "italic", fontSize: 18 }}>
-          {"\u2B24" + " "}Best Casino ever
-        </Text>
-        <Text style={{ fontStyle: "italic", fontSize: 18 }}>
-          {"\u2B24" + " "}Simple rules
-        </Text>
-        <Text style={{ fontStyle: "italic", fontSize: 18 }}>
-          {"\u2B24" + " "} Quite popular
-        </Text>
+        <View style={styles.bullets}>
+          <Text style={{ fontStyle: "italic", fontSize: 18 }}>
+            {"\u2B24" + " "}Best Casino ever
+          </Text>
+          <Text style={{ fontStyle: "italic", fontSize: 18 }}>
+            {"\u2B24" + " "}Simple rules
+          </Text>
+          <Text style={{ fontStyle: "italic", fontSize: 18 }}>
+            {"\u2B24" + " "} Quite popular
+          </Text>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 50,
     backgroundColor: "dodgerblue",
-    marginBottom: 15,
+    marginBottom: 0,
     //borderBottomWidth: 1,
     //borderBottomColor: "grey",
     //position: "absolute",
@@ -120,12 +124,19 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     width: "100%",
-    height: 200,
+    height: 176,
+    resizeMode: "contain",
   },
   infoStyle: {
     marginTop: 30,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
+    width: "90%",
+  },
+  bullets: {
+    marginLeft: 20,
+    justifyContent: "center",
+    alignItems: "flex-start",
   },
 });
 

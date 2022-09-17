@@ -12,6 +12,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { FontAwesome } from "@expo/vector-icons";
 
 const NewLoanScreen = ({ navigation }) => {
   //console.log(salesData[0].title);
@@ -19,15 +20,16 @@ const NewLoanScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" barStyle="light-content" />
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}
         >
-          <Image
+          {/*<Image
             style={styles.barNotificationLogo}
             source={require("../../assets/bell.png")}
-          />
+  />*/}
+          <FontAwesome name="bell-o" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scrollDesign}>
@@ -149,11 +151,14 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
-    padding: 10,
+    fontSize: 18,
+    //borderWidth: 1,
+    borderBottomWidth: 1.5,
+    borderBottomColor: "grey",
+    //padding: 10,
     width: "85%",
-    textAlign: "center",
-    borderRadius: 12,
+    textAlign: "left",
+    //borderRadius: 12,
     backgroundColor: "white",
   },
   applyButton: {

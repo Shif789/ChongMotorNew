@@ -27,6 +27,7 @@ import LoanDetailsScreen from "./app/screens/LoanDetailsScreen";
 import PaymentInstallmentScreen from "./app/screens/PaymentInstallmentScreen";
 import NewLoanScreen from "./app/screens/NewLoanScreen";
 import PaymentScreen from "./app/screens/PaymentScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 const Stack = createStackNavigator();
 
@@ -52,12 +53,28 @@ export default function App() {
         <Stack.Screen
           name="SalesScreen"
           component={SalesScreen}
-          options={{ headerTitle: "Sales Order", headerTitleAlign: "center" }}
+          options={{
+            headerTitle: "Sales Order",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
+          }}
         />
         <Stack.Screen
           name="LoanScreen"
           component={LoanScreen}
-          options={{ headerTitle: "Loan", headerTitleAlign: "center" }}
+          options={{
+            headerTitle: "Loan",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
+          }}
         />
         <Stack.Screen
           name="OnlineApplication"
@@ -65,6 +82,11 @@ export default function App() {
           options={{
             headerTitle: "Online Application",
             headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
           }}
         />
         <Stack.Screen
@@ -75,32 +97,53 @@ export default function App() {
             //header: () => <CustomHeader navigation={navigation} />,
             headerTitle: "Notification",
             headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
           }}
         />
         <Stack.Screen
           name="Casino"
           component={CasinoComponent}
-          options={{ headerTitleAlign: "center" }}
+          options={{ headerTitle: "", headerTitleAlign: "center" }}
         />
         <Stack.Screen
           name="Cash"
           component={CashComponent}
-          options={{ headerTitleAlign: "center" }}
+          options={{ headerTitle: "", headerTitleAlign: "center" }}
         />
         <Stack.Screen
           name="Promotion"
           component={CasinoPromotionsComponent}
-          options={{ headerTitleAlign: "center" }}
+          options={{ headerTitle: "", headerTitleAlign: "center" }}
         />
         <Stack.Screen
           name="Order List"
           component={SalesDetailsScreen}
-          options={{ headerTitle: "Order List", headerTitleAlign: "center" }}
+          options={{
+            headerTitle: "Order List",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
+          }}
         />
         <Stack.Screen
           name="Loan List"
           component={LoanDetailsScreen}
-          options={{ headerTitle: "Loan List", headerTitleAlign: "center" }}
+          options={{
+            headerTitle: "Loan List",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
+          }}
         />
         <Stack.Screen
           name="Pay Installment"
@@ -108,6 +151,11 @@ export default function App() {
           options={{
             headerTitle: "Pay Installment",
             headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
           }}
         />
         <Stack.Screen
@@ -116,6 +164,11 @@ export default function App() {
           options={{
             headerTitle: "New Loan",
             headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
           }}
         />
         <Stack.Screen
@@ -124,6 +177,18 @@ export default function App() {
           options={{
             headerTitle: "Payment",
             headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "dodgerblue",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Register Screen"
+          component={RegisterScreen}
+          options={{
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

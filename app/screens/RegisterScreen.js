@@ -20,10 +20,10 @@ import {
   //UserCredential,
 } from "firebase/auth";
 
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const signInUser = () => {
+  /*const signInUser = () => {
     signInWithEmailAndPassword(authentication, username, password)
       .then((UserCredential) => {
         const user = UserCredential.user;
@@ -31,8 +31,8 @@ const LoginScreen = ({ navigation }) => {
         navigation.navigate("DashboardScreen");
       })
       .catch((error) => alert(error.message));
-  };
-  /*const registerUser = () => {
+  };*/
+  const registerUser = () => {
     createUserWithEmailAndPassword(authentication, username, password)
       .then((UserCredential) => {
         const user = UserCredential.user;
@@ -42,7 +42,7 @@ const LoginScreen = ({ navigation }) => {
         setPassword("");
       })
       .catch((error) => alert(error.message));
-  };*/
+  };
 
   /*const handleSignUp = () => {
     auth
@@ -66,7 +66,7 @@ const LoginScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" style="auto" />
 
-      <View
+      <ImageBackground
         //source={require("../../assets/BackgroundImg.png")}
         style={styles.background}
       >
@@ -76,7 +76,7 @@ const LoginScreen = ({ navigation }) => {
               style={styles.logo}
               source={require("../../assets/e-ONElogo.jpg")}
             />
-            <Text style={styles.logoText}>Log In</Text>
+            <Text style={styles.logoText}>Register</Text>
           </View>
           <View style={styles.formContainer}>
             <TextInput
@@ -95,28 +95,34 @@ const LoginScreen = ({ navigation }) => {
           </View>
           <View style={styles.loginContainer}>
             <TouchableOpacity
-              style={styles.loginButton}
-              //onPress={() => navigation.navigate("DashboardScreen")}
-              onPress={signInUser}
-            >
-              <Text style={styles.loginText}>Log In</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
               style={styles.registerButton}
               //onPress={() => navigation.navigate("DashboardScreen")}
-              onPress={() => navigation.navigate("Register Screen")}
+              onPress={registerUser}
             >
               <Text style={styles.registerText}>Register</Text>
             </TouchableOpacity>
-            <Text style={styles.formText}>Forgot Password? </Text>
+            <TouchableOpacity
+              style={styles.loginButton}
+              //onPress={() => navigation.navigate("DashboardScreen")}
+              onPress={() => navigation.navigate("LoginScreen")}
+            >
+              <Text style={styles.loginText}>Log In</Text>
+            </TouchableOpacity>
+            <Text
+              style={styles.formText}
+              onPress={() => navigation.navigate("LoginScreen")}
+            >
+              Already have an account?{" "}
+            </Text>
           </View>
+          {/*
           <Text style={styles.termsConditions}>
-            By logging in you agree with e-ONE{" "}
+            By logging in you agree with Chong Motor{" "}
             <Text style={{ color: "blue" }}>Terms</Text> and{" "}
             <Text style={{ color: "blue" }}>Privacy Policy.</Text>
-          </Text>
+  </Text>*/}
         </View>
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -173,7 +179,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
-  loginButton: {
+  registerButton: {
     width: "70%",
     height: 45,
     backgroundColor: "dodgerblue",
@@ -182,7 +188,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 20,
   },
-  registerButton: {
+  loginButton: {
     width: "70%",
     height: 45,
     backgroundColor: "transparent",
@@ -196,12 +202,12 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "white",
+    color: "black",
   },
   registerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black",
+    color: "white",
   },
   input: {
     height: 40,
@@ -223,4 +229,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;

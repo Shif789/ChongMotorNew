@@ -43,7 +43,7 @@ const CasinoPromotionsComponent = (props) => {
         <Text style={styles.barText}>{/*promoName}Promotions</Text>
       </View> */}
       <View style={styles.barDesign}>
-        <Text style={styles.barTitle}>Chong Motor</Text>
+        <Text style={styles.barTitle}>e-ONE Credit Sdn Bhd</Text>
         <TouchableOpacity
           style={styles.barNotification}
           onPress={() => navigation.navigate("Notification")}

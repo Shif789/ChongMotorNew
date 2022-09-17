@@ -15,52 +15,52 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Sbar backgroundColor="lightgrey" style="auto" />
-      <ImageBackground
-        source={require("../../assets/BackgroundImg.png")}
+      <View
+        //source={require("../../assets/BackgroundImg.png")}
         style={styles.background}
       >
         <View style={styles.newContainer}>
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={require("../../assets/Logo.png")}
+              source={require("../../assets/e-ONElogo.jpg")}
             />
-            <Text style={[styles.textDesign, { width: "100%" }]}>
+            {/*<Text style={[styles.textDesign, { width: "100%" }]}>
               Become a MILLIONAIR
-            </Text>
+  </Text>*/}
           </View>
 
           <View style={styles.imageContainer}>
             <TouchableOpacity onPress={() => navigation.navigate("Casino")}>
               <Image
-                style={[styles.imageDesign, { marginBottom: 7 }]}
-                source={require("../../assets/casino.jpg")}
+                style={[styles.imageDesign, { marginBottom: 0 }]}
+                source={require("../../assets/promotion1.png")}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("Cash")}>
               <Image
-                style={[styles.imageDesign, { marginBottom: 7 }]}
-                source={require("../../assets/cash.jpg")}
+                style={styles.imageDesign}
+                source={require("../../assets/promotion.png")}
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("Promotion")}>
+            {/*<TouchableOpacity onPress={() => navigation.navigate("Promotion")}>
               <Image
                 style={styles.imageDesign}
                 source={require("../../assets/casinoPromotion.jpg")}
               />
-            </TouchableOpacity>
+</TouchableOpacity>*/}
           </View>
 
           <TouchableOpacity
             style={styles.loginButton}
             onPress={() => navigation.navigate("LoginScreen")}
           >
-            <Text style={styles.loginText}>Login</Text>
+            <Text style={styles.loginText}>Log In</Text>
           </TouchableOpacity>
 
           {/* <Button title="Login" style={styles.loginButton} /> */}
         </View>
-      </ImageBackground>
+      </View>
     </SafeAreaView>
   );
 };
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     resizeMode: "cover",
+    backgroundColor: "white",
   },
   container: {
     flex: 1,
@@ -83,17 +84,20 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? Sbar.currentHeight : 0,
   },
   imageDesign: {
-    width: 300,
-    height: 150,
-    borderRadius: 20,
+    width: 380,
+    height: 200,
+    resizeMode: "contain",
+
+    //borderRadius: 20,
   },
   imageContainer: {
     position: "absolute",
-    top: 180,
+    top: 200,
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   logo: {
-    width: 200,
+    width: 270,
     height: 100,
     resizeMode: "cover",
   },
@@ -114,9 +118,10 @@ const styles = StyleSheet.create({
   },
 
   textDesign: {
-    backgroundColor: "#FFD700",
+    backgroundColor: /*"#FFD700"*/ "transparent",
     color: "#FFF",
     fontSize: 20,
+    textAlign: "center",
   },
   loginText: {
     fontSize: 17,
